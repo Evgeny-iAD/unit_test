@@ -1,16 +1,30 @@
-# This is a sample Python script.
+# решение задачи
+class ListComparator:
+    def __init__(self, list1, list2):
+        self.list1 = list1
+        self.list2 = list2
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def average(self, lst):
+        """average"""
+        return sum(lst) / len(lst) if lst else 0
+
+    def compare_averages(self):
+        """compare_averages"""
+        avg_list1 = self.average(self.list1)
+        avg_list2 = self.average(self.list2)
+
+        if avg_list1 > avg_list2:
+            return "Первый список имеет большее среднее значение"
+        elif avg_list2 > avg_list1:
+            return "Второй список имеет большее среднее значение"
+        else:
+            return "Средние значения равны"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    l1 = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+    l2 = [2, 3, 4, 5, 6, 2, 3, 4, 5, 6, 2, 3, 4, 5, 6]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    comparator = ListComparator(l1, l2)
+    result = comparator.compare_averages()
+    print(result)
